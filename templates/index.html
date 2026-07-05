@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}
+FruitVision AI
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="text-center mb-5">
+
+            <h1 class="display-4 fw-bold text-success">
+                🍎 FruitVision AI
+            </h1>
+
+            <p class="lead">
+                Fruit Classification using Transfer Learning Xception
+            </p>
+
+            <p class="text-muted">
+                Upload gambar buah, kemudian sistem akan mengklasifikasikan
+                jenis buah menggunakan model Deep Learning Xception.
+            </p>
+
+        </div>
+
+        <div class="card shadow-lg">
+
+            <div class="card-body p-4">
+
+                <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+
+                    <div class="mb-3">
+
+                        <label class="form-label fw-semibold">
+
+                            Upload Image
+
+                        </label>
+
+                        <input class="form-control" type="file" name="image" id="imageInput" accept="image/*" required>
+
+                    </div>
+
+                    <div class="text-center mb-4">
+
+                        <img id="preview" src="" class="img-fluid rounded shadow"
+                            style="display:none; max-height:300px;">
+
+                    </div>
+
+                    <div class="d-grid">
+
+                        <button type="submit" class="btn btn-success btn-lg">
+
+                            Predict
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <h5>🍎 5 Classes</h5>
+
+                        <p class="mb-0">
+
+                            Apple<br>
+                            Banana<br>
+                            Grape<br>
+                            Mango<br>
+                            Strawberry
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mt-3 mt-md-0">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <h5>🧠 Model</h5>
+
+                        <p>
+
+                            Transfer Learning
+                            <br>
+                            Xception
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mt-3 mt-md-0">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <h5>🎯 Accuracy</h5>
+
+                        <h2 class="text-success">
+
+                            91%
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    const input = document.getElementById("imageInput");
+
+    const preview = document.getElementById("preview");
+
+    input.onchange = function () {
+
+        const file = input.files[0];
+
+        if (file) {
+
+            preview.src = URL.createObjectURL(file);
+
+            preview.style.display = "block";
+
+        }
+
+    }
+
+</script>
+
+{% endblock %}

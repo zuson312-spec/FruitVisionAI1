@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}
+Prediction Result
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h2 class="text-center text-success mb-4">
+                    Prediction Result
+                </h2>
+
+                <div class="text-center mb-4">
+
+                    <img src="{{ url_for('uploaded_file', filename=image) }}" class="img-fluid rounded shadow"
+                        style="max-height:300px;">
+
+                </div>
+
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th width="35%">Prediction</th>
+                        <td>
+                            <strong>{{ prediction }}</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Confidence</th>
+                        <td>{{ confidence }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th>Inference Time</th>
+                        <td>{{ inference_time }} second</td>
+                    </tr>
+
+                </table>
+
+                <h4 class="mt-4 mb-3">
+                    Top 3 Prediction
+                </h4>
+
+                <table class="table table-striped">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>No</th>
+                            <th>Class</th>
+                            <th>Confidence</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for item in top3 %}
+
+                        <tr>
+
+                            <td>{{ loop.index }}</td>
+
+                            <td>{{ item.class }}</td>
+
+                            <td>{{ item.confidence }}%</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+                <div class="text-center mt-4">
+
+                    <a href="{{ url_for('home') }}" class="btn btn-success">
+
+                        Predict Again
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

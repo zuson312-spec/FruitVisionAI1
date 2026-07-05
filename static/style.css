@@ -1,0 +1,133 @@
+/* ===========================
+   FruitVision AI
+=========================== */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+
+/* Navbar */
+
+.navbar {
+    background: linear-gradient(90deg, #198754, #28a745);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Card */
+
+.card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .15);
+}
+
+/* Title */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+}
+
+/* Upload Preview */
+
+#preview {
+    max-height: 320px;
+    border-radius: 15px;
+    border: 3px dashed #198754;
+    padding: 10px;
+}
+
+/* Prediction Image */
+
+.result-image {
+    max-height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+/* Button */
+
+.btn-success {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.btn-success:hover {
+    transform: scale(1.03);
+}
+
+/* Table */
+
+.table th {
+    width: 35%;
+}
+
+/* Progress */
+
+.progress {
+    height: 24px;
+    border-radius: 30px;
+}
+
+.progress-bar {
+    font-weight: 600;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    color: #198754;
+}
+
+.hero p {
+    color: #666;
+}
+
+/* Badge */
+
+.badge {
+    font-size: 15px;
+    padding: 8px 15px;
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+
+}
